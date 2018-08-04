@@ -15,7 +15,7 @@ def i_catch_all():
     except (ValueError, TypeError, NameError):
         print("conversion failed")
         pass
-        
+
 class User_Defined_Exception(Exception):
     pass
 
@@ -27,7 +27,7 @@ class UDE_Two(UDE_One):
 
 class UDE_Three(UDE_Two):
     pass
-    
+
 
 def raise_exception():
     try:
@@ -71,7 +71,7 @@ def dynamic_obj_creation():
             print(isinstance(err, User_Defined_Exception))
             print(isinstance(err, UDE_One))
             # print(typeof(err))
-        
+
 
 class A:
     name = "A"
@@ -90,9 +90,11 @@ def create_obs_one_by_one():
             print(err)
         finally:
             print('cleaned up everything')
-            
+
 
 # raise_exception()
 # raise_exception_other()
 # dynamic_obj_creation()
 create_obs_one_by_one()
+
+CONSTANT = 99.99
