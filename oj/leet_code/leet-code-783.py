@@ -9,8 +9,56 @@ class TreeNode:
 
 class Solution:
 
+    def inorder(self, root):
+        if not root:
+            return []
+
+        l_tr = self.inorder(root.left)
+        r_tr = self.inorder(root.right)
+
+        return l_tr + [root.val] + r_tr
+
+    def min_diff_recur_inorder(self, root):
+        if root:
+            inorder = self.inorder(root)
+
+            import sys
+            min_diff = sys.maxsize
+
+            for i, _ in enumerate(inorder):
+                if i + 1 < len(inorder):
+                    min_diff = min(min_diff, abs(inorder[i] - inorder[i + 1]))
+
+            return min_diff
+
+
+    def min_diff_recur(self, root):
+        if not root or (not root.left and not root.right):
+            return None
+
+        l_m = self.min_diff_recur(root.left)
+        r_m = self.min_diff_recur(root.right)
+
+        current_min = None
+        if root.left and root.right:
+            current_min = min(abs(root.val - root.right.val), abs(root.val - root.left.val))
+        elif root.right:
+            current_min = abs(root.val - root.right.val)
+        else:
+            current_min = abs(root.val - root.left.val)
+
+        if l_m and r_m:
+            current_min = min(current_min, l_m, r_m)
+        elif l_m:
+            current_min = min(current_min, l_m)
+        # else:
+        elif r_m:
+            current_min = min(current_min, r_m)
+
+        return current_min
+
     def min_diff_1(self, root):
-        
+
         if not root:
             return None
 
@@ -69,12 +117,29 @@ a = TreeNode(4)
 b = TreeNode(2)
 c = TreeNode(6)
 d = TreeNode(1)
-# e = TreeNode(3)
+e = TreeNode(3)
 
 a.left = b
 a.right = c
 b.left = d
-# b.right = e
+b.right = e
+# c.left = f
+# c.right = g
 
-print(s.minDiffInBST(a))
+print(s.min_diff_recur_inorder(a))
+
+a = TreeNode(90)
+b = TreeNode(69)
+c = TreeNode(49)
+d = TreeNode(52)
+e = TreeNode(89)
+
+a.left = b
+b.left = c
+b.right = e
+c.right = d
+# c.right = g
+
+
+print(s.min_diff_recur_inorder(a))
 
