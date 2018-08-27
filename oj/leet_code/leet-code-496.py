@@ -4,27 +4,40 @@
 
 
 class Solution:
+
+    def index_of(self, x, nums):
+        if x is not None and nums is not None:
+            for i, y in enumerate(nums):
+                if y == x:
+                    return i
+            return None
+
     def nextGreaterElement(self, nums1, nums2):
-        """
-        :type nums1: List[int]
-        :type nums2: List[int]
-        :rtype: List[int]
-        """
+        
+        if nums1 is not None and nums2 is not None:
 
-        def internal(indx):
-            if indx + 1 < len(nums2):
-                for y in nums2[indx:]:
-                    if y > nums1[indx]:
-                        return y
-                return -1
+            ret = []
 
-        ret_array = []
-        for i, _ in enumerate(nums1):
-            ret_array.append(internal(i))
+            for i, x in enumerate(nums1):
+                first_index_of_x = self.index_of(x, nums2)
+                if first_index_of_x is not None:
+                    has_found = False
+                    for y in nums2[first_index_of_x + 1:]:
+                        if y > x:
+                            ret.append(y)
+                            has_found = True
+                            break
 
-        return ret_array
+                    if not has_found:
+                        ret.append(-1)
+
+            return ret
+
 
 
 s = Solution()
 print(s.nextGreaterElement([4, 1, 2], [1, 3, 4, 2]))
 print(s.nextGreaterElement([2, 4], [1, 2, 3, 4]))
+print(s.nextGreaterElement([], [1, 2, 3, 4]))
+print(s.nextGreaterElement([1], [1, 2, 3, 4]))
+print(s.nextGreaterElement([1, -1], [1, 2, 3, 4]))
