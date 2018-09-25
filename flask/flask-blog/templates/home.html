@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>flask</title>
+	</head>
+	<body>
+		<h1>hello from template</h1>
+		<p>other comments</p>
+
+		<!-- 
+	            'name': 'xyz',
+        	    'post_date': '9/12/2018',
+	            'text': 'dummy first post'           
+		--> 
+
+		{% for post in posts_to_render %}
+			<h1>{{ post.name }}</h1>
+			<p>Posted on {{ post.post_date }}</p>
+			<p>{{ post.text }}</p>
+		{% endfor %}
+	</body>
+
+</html>
