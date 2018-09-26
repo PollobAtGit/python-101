@@ -1,22 +1,20 @@
-<html>
-	<head>
-		<title>flask</title>
-	</head>
-	<body>
-		<h1>hello from template</h1>
-		<p>other comments</p>
+{% extends "layout.html"  %}
 
-		<!-- 
-	            'name': 'xyz',
-        	    'post_date': '9/12/2018',
-	            'text': 'dummy first post'           
-		--> 
+{% block page_title %}
+	<title>Blog</title>
+{% endblock %}
 
-		{% for post in posts_to_render %}
+{% block content %}
+
+	<h1>hello from template</h1>
+	<p>other comments</p>
+
+	{% for post in posts_to_render %}
+		<div class="card">
 			<h1>{{ post.name }}</h1>
 			<p>Posted on {{ post.post_date }}</p>
 			<p>{{ post.text }}</p>
-		{% endfor %}
-	</body>
+		</div>
+	{% endfor %}
+{% endblock %}
 
-</html>

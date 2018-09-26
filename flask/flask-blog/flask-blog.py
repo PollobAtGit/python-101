@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
@@ -20,6 +20,12 @@ posts = [
         }
 ]
 
+from collections import namedtuple
+
+User = namedtuple('User', 'name contact user_name')
+
+dummy_user = User(name='ashiqul.islam', contact='013xxx', user_name='pollob')
+
 @app.route("/")
 @app.route("/home")
 
@@ -28,7 +34,7 @@ def hello():
 
 @app.route("/know-me")
 def me():
-    return "<h2>dude what's up</h2>"
+    return render_template('know-me.html', me=dummy_user)
 
 @app.route("/contact")
 def meet():
