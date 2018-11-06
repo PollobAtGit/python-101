@@ -12,7 +12,9 @@ class Solution(object):
             right = self.go(root.right)
 
             if left[0] and right[0] and left[0] == root.val == right[0]:
-                cur_high = max(left[1], right[1]) + 1
+                # print(left[0], root.val, right[0])
+                # print(left[1], right[1], left[1] + right[1])
+                cur_high = max(left[1] + 1, right[1] + 1, left[1] + right[1] + 2)
                 return (root.val, cur_high, max(cur_high, left[2], right[2]))
 
             if left[0]:
@@ -32,6 +34,8 @@ class Solution(object):
         if root is not None:
             goresult = self.go(root)
             return goresult[2]
+        else:
+            return 0
 
 a = TreeNode(5)
 b = TreeNode(4)
@@ -39,7 +43,7 @@ c = TreeNode(5)
 d = TreeNode(1)
 e = TreeNode(1)
 f = TreeNode(5)
-g = TreeNode(5)
+# g = TreeNode(5)
 
 a.left = b
 a.right = c
@@ -49,7 +53,7 @@ b.right = e
 
 c.right = f
 
-f.left = g
+# f.left = g
 
 '''
 
@@ -73,5 +77,6 @@ c.left = f
 
 s = Solution()
 print(s.longestUnivaluePath(a))
+print(s.longestUnivaluePath(None))
 
 
