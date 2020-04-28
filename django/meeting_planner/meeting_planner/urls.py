@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from meetings.views import *
 from website.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('welcome/', welcome),
     path('now/', now),
-    path('about/', about)
+    path('about/', about),
+    path('meeting_details/<int:id>', details),
+    path('rooms', rooms),
+    path('room_details/<int:id>', room_details)
 ]

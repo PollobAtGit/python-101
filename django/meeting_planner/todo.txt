@@ -1,0 +1,7 @@
+
+-- POST request to create meeting 
+-- PUT to update meeting details
+-- repository layer ??
+-- service layer ??
+-- consolidate xxs & xx/<id> with xx or xx/id
+
