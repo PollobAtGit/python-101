@@ -5,12 +5,17 @@
     <title>Meetings</title>
 </head>
 <body>
+<p>
+    Currently scheduled meetings
+</p>
+
 <ol>
-    {% for room in rooms %}
+    {% for meeting in meetings %}
         <li>
-            <a href="{% url 'room_details' room.id %}">{{ room.name }}</a>
+            <a href="{% url 'meeting_details' meeting.id %}">{{ meeting.title }}</a>
         </li>
     {% endfor %}
 </ol>
+
 </body>
 </html>

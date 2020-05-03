@@ -8,7 +8,10 @@ class Room(models.Model):
     floor = models.CharField(max_length=50)
 
     def __str__(self):
-        return f'Room {self.number} at floor {self.floor}'
+        return f'{self.name}'
+
+
+# return f'Room {self.number} at floor {self.floor}'
 
 
 class Meetings(models.Model):
