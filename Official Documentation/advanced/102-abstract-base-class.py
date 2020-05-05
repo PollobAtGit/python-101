@@ -18,6 +18,8 @@ dog.legs_count()
 
 from abc import ABC, abstractmethod
 
+
+
 class ElectronicsDevice(ABC):
     
     def __init__(self):
