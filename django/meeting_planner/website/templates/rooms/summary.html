@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Meetings</title>
-</head>
-<body>
-<ol>
-    {% for room in rooms %}
-        <li>
-            <a href="{% url 'room_details' room.id %}">{{ room.name }}</a>
-        </li>
-    {% endfor %}
-</ol>
-</body>
-</html>
+{% extends "website/base.html" %}
+{% block content %}
+    <ol>
+        {% for room in rooms %}
+            <li>
+                <a href="{% url 'room_details' room.id %}">{{ room.name }}</a>
+            </li>
+        {% endfor %}
+    </ol>
+{% endblock content %}

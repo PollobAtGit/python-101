@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Meetings</title>
-</head>
-<body>
-<p>
-    Currently scheduled meetings
-</p>
+{% extends "website/base.html" %}
+{% block content %}
+    <p>
+        Currently scheduled meetings
+    </p>
 
-<ol>
-    {% for meeting in meetings %}
-        <li>
-            <a href="{% url 'meeting_details' meeting.id %}">{{ meeting.title }}</a>
-        </li>
-    {% endfor %}
-</ol>
-
-</body>
-</html>
+    <ol>
+        {% for meeting in meetings %}
+            <li>
+                <a href="{% url 'meeting_details' meeting.id %}">{{ meeting.title }}</a>
+            </li>
+        {% endfor %}
+    </ol>
+{% endblock content %}

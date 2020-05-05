@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Meeting Planner</title>
-</head>
-<body>
-<p>Welcome to world's best meeting planner</p>
+{% extends "website/base.html" %}
 
-<ol>
-    <li><a href="{% url 'meeting_list' %}">Meetings sub-domain</a></li>
-    <li><a href="{% url 'room_list' %}">Rooms sub-domain</a></li>
-</ol>
-</body>
-</html>
+{% block content %}
+    <p>Welcome to world's best meeting planner</p>
+
+    <ol>
+        <li><a href="{% url 'meeting_list' %}">Meetings sub-domain</a></li>
+        <li><a href="{% url 'room_list' %}">Rooms sub-domain</a></li>
+    </ol>
+{% endblock %}

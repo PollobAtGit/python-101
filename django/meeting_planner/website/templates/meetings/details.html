@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ current_meeting }} details</title>
-</head>
-<body>
-<p>
-    Meeting {{ current_meeting.title }} is scheduled on {{ current_meeting.date }}, at {{ current_meeting.start_time }}
-    at <strong>room {{ current_meeting.room }}</strong>
-</p>
-</body>
-</html>
+{% extends "website/base.html" %}
+{% block content %}
+    <p>
+        Meeting {{ current_meeting.title }} is scheduled on {{ current_meeting.date }},
+        at {{ current_meeting.start_time }}
+        at <strong>room {{ current_meeting.room }}</strong>
+    </p>
+{% endblock content %}
