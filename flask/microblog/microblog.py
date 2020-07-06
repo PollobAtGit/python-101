@@ -1,2 +1,2 @@
-from app_module import flask_app
+from app import flask_app
 
