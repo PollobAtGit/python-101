@@ -11,6 +11,21 @@
 		{% endif %}
 	</body>
 	<body>
+		<a href="/index">Home Page</a>
+		<a href="/login">Login</a>
+
+		<!-- .get_flashed_messages() is provided by flask -->
+
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ol>
+			{% for message in messages %}
+				<li>{{ message }}</li>
+			{% endfor %}
+			</ol>
+		{% endif %}
+		{% endwith %}
+
 		{% block content %}
 		{% endblock %}
 	</body>

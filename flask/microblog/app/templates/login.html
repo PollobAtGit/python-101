@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<h1>Sign In</h1>
+
+	<!-- novalidate means the form will not be validated in client side. So essentially server is responsible for validating the form, in this case the flask application -->
+	<form action="" method="post" novalidate>
+
+		<!-- .hidden_tag() creates a hidden field that contains the CSRF token key that flask uses to validate the form against CSRF attack -->
+		{{ form.hidden_tag() }}
+
+		<p>
+			{{ form.user_name.label }} <br/>
+
+			<!-- css can be attached to the field using the same way as 'size' is being used -->
+			{{ form.user_name(size=32) }}
+		</p>
+
+		<p>
+			<!-- after field invoking label property to get the control name-->
+			{{ form.password.label }} <br/>
+			
+			<!-- to get the control on the HTML page the control needs to be invoked as a method -->
+			{{ form.password(size=32) }}
+		</p>
+
+		<!-- the control field needs to be invoked as method to get the HTML control -->
+		<p> {{ form.remember_me() }} {{ form.remember_me.label }} </p>
+
+		<p> {{ form.submit() }} </p>
+	</form>
+
+{% endblock %}
