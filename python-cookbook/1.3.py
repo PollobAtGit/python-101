@@ -1,4 +1,4 @@
-## FIXED SIZE DEQUE DROPS THE 1ST ELEMENT ADDED 
+# 1.3 => FIXED SIZE DEQUE DROPS THE 1ST ELEMENT ADDED 
 
 from collections import deque
 from random import *

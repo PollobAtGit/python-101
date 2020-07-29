@@ -1,4 +1,4 @@
-# unpacking elements from iterable of arbitrary length 
+# 1.2 => UNPACKING ELEMENTS FROM ITERABLE OF ARBITRARY LENGTH 
 
 records = [
         ('foo', 1, 2, 3),
