@@ -16,3 +16,6 @@ print('nums[2] is deep_copied[0]: ', nums[2] is deep_copied[2])
 nums[2].append(9999)
 
 print(nums, "\t", copied_via_copy, "\t", copied_via_ctor, "\t", deep_copied)
+
+# if __name__ == "__main__":
+#     unittest.main()
